@@ -29,7 +29,7 @@
         "php": ">=8.1",
         "ext-pdo": "*",
         "ext-pcre": "*",
-        "doctrine/dbal": "^2.7",
+        "doctrine/dbal": ">=3.3.7",
         "smi2/phpclickhouse": "^1.0"
     },
     "require-dev": {
