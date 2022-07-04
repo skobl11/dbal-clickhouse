@@ -1,0 +1,9 @@
+services:
+
+  dbal-clickhouse:
+    hostname: dbal-clickhouse
+    build: .
+    ports:
+      - 81:81
+    volumes:
+      - ./:/var/www/html
