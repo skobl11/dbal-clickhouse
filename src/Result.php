@@ -19,9 +19,9 @@ class Result implements \Doctrine\DBAL\Driver\Result
     /**
      * @param list<array<string, mixed>> $data
      */
-    public function __construct(array $data = null)
+    public function __construct(array $data)
     {
-        $this->data = $data ?? [];
+        $this->data = $data;
         if (count($data) === 0) {
             return;
         }
