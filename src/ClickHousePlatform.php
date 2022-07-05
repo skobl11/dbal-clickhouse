@@ -20,6 +20,7 @@ use Doctrine\DBAL\Platforms\TrimMode;
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Schema\Index;
 use Doctrine\DBAL\Schema\TableDiff;
+use Doctrine\DBAL\Schema\UniqueConstraint;
 use Doctrine\DBAL\Types\BigIntType;
 use Doctrine\DBAL\Types\BlobType;
 use Doctrine\DBAL\Types\DateTimeType;
@@ -951,7 +952,7 @@ class ClickHousePlatform extends AbstractPlatform
     /**
      * {@inheritDoc}
      */
-    public function getUniqueConstraintDeclarationSQL($name, Index $index) : string
+    public function getUniqueConstraintDeclarationSQL($name, UniqueConstraint $constraint) : string
     {
         throw ClickHouseException::notSupported(__METHOD__);
     }
@@ -1328,5 +1329,10 @@ class ClickHousePlatform extends AbstractPlatform
         $c = $this->getIdentifierQuoteCharacter();
 
         return $c . addslashes($str) . $c;
+    }
+
+    public function getCurrentDatabaseExpression(): string
+    {
+        return 'currentDatabase()';
     }
 }
